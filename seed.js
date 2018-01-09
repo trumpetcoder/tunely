@@ -32,7 +32,7 @@ var albumsList =[ //SPRINT 1 STEP 3.A.B
 ];
 
 
-var sampleSongs = [];
+var sampleSongs = []; //SPRINT 3 STEP 2.A
 
 sampleSongs.push({ name: 'Famous',
                    trackNumber: 1
@@ -56,7 +56,7 @@ sampleSongs.push({ name: 'Stronger',
                    trackNumber: 7
 });
 
-albumsList.forEach(function (Album) {
+albumsList.forEach(function (Album) { //SPRINT 3 STEP 2.B
 	Album.songs = sampleSongs;
 });
 

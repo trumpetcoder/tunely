@@ -82,18 +82,20 @@ var formData = $(this).serialize();
 
 $(this).trigger('reset');
 
-  $.ajax ({
-    url: '/api/albums',
-    type: 'POST',
-    data: formData,
-    dataType: 'string'
-  }).done(function (data) {
+      $.ajax ({
+        url: '/api/albums',
+        type: 'POST',
+        data: formData,
+      }).done(function (data) {
+        renderAlbum(data);
 
     });
 
   });
 
 });
+
+
 // this function takes a single album and renders it to the page
 function renderAlbum(album) {
   console.log('rendering album:', album);
@@ -120,7 +122,7 @@ function renderAlbum(album) {
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Released date:</h4>" +
   "                        <span class='album-releaseDate'>" + album.releaseDate + "</span>" + //modified the hard data with album.releaseDate SPRINT 1
-  "                      </li>" +
+  "                      </li>" + 
   "                    </ul>" +
   "                  </div>" +
   "                </div>" +
@@ -128,6 +130,19 @@ function renderAlbum(album) {
   "          </div>" +
   "          <!-- end one album -->";
 
+  
+
   // render to the page with jQuery
   $('#albums').append(albumHtml); //Sprint 1 to render the albums info with the .append STEP 1.B
 }
+
+// function buildSongsHtml(songs) { 
+// var songHtml =
+// "  <li class='list-group-item'> " +
+// "  <h4 class='inline-header'>Songs:</h4> " +
+// "  <span>    – (1)" + songs[0].name + " – (2) " + songs[1].name + " – (3) " + songs[2].name + " – (4) " + songs[3].name + " – (5) " + songs[4].name + " – (6) " + songs[5].name + " – (7) " +  songs[6].name + " </span> " +
+// " </li> "
+
+// return songHtml;
+
+// } buildSongsHTML(album.song);

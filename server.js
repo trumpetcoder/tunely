@@ -94,21 +94,24 @@ app.get('/api/albums', function (req, res) { //SPRINT 1 STEP 2.B
 });
 
 app.post('/api/albums', function album_create (req, res) {
-  var newAlbum = db.Album ({
+  var newAlbum = db.Album ({ //CREATING A NEW ALBUM IN THE DB
 
-    name: req.body.name,
-    songName: req.body.artistName,
+    name: req.body.name, //LINING UP WITH THE DB FORM FIELDS
+    artistName: req.body.artistName,
     releaseDate: req.body.releaseDate,
     genres: req.body.genres
   
   });
-newAlbum.save (function(err, Album) {
-  if (err) {
-    return console.log('There is an error');
 
-  }
-  res.json(Album);
-});
+newAlbum.save (function(err, Album) { //SAVING THE VARIABLE newAlbum to the db
+    if (err) {
+      return console.log('There is an error');
+
+      }
+      res.json(Album);
+    
+    });
+    res.send(req.body);
 
 });
 

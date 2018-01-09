@@ -26,10 +26,7 @@
       </div>
     </div>
 
-    <!-- Setting up form for submission SPRINT 2 STEP 1.A -->
-    <!-- BEGIN FORM SAMPLE -->
-
-    <section id='album-form' class="container">
+    <section id='album-form' class="container"> <!-- START of FORM -->
       <div class="row">
       <div class="col-md-10 col-md-offset-1">
 
@@ -61,7 +58,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="releaseDate">Release Date</label>
               <div class="col-md-4">
-              <input id="releaseDate" name="releaseDate" type="text" placeholder="1992" class="form-control input-md">
+              <input id="releaseDate" name="releaseDate" type="text" placeholder="Year" class="form-control input-md">
 
               </div>
             </div>
@@ -70,7 +67,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="genres">Genres (separated by commas)</label>
               <div class="col-md-4">
-                <textarea class="form-control" id="genres" name="genres">rock, pop</textarea>
+                <textarea class="form-control" id="genres" name="genres" placeholder="rock, pop, etc" value="Hip Hop, Rap"></textarea>
               </div>
             </div>
 
@@ -86,48 +83,19 @@
         </form>
       </div>
       </div>
-    </section>
+    </section> <!-- END of FORM --> 
 
-     <!--   END FORM SAMPLE -->
+
+    <section class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Albums</h2>
+        </div>
+      </div>
       <!-- albums! -->
       <div id='albums'>
-          
-          <!-- one album  COMMENTED OUT HARD DATA SPRINT 1 STEP A WE'RE DROPPING IN INFO FROM APP.JS-->
-          <!-- <div class="row album"> -->
 
-            <!-- <div class="col-md-10 col-md-offset-1"> -->
-
-              <!-- begin album internal row
-              <div class='row'>
-                <div class="col-md-3 col-xs-12 album-art">
-                  <img class="img-fluid" src="http://placehold.it/800x800" alt="album image">
-                </div>
-
-                <div class="col-md-9 col-xs-12">
-                  <ul class="list-group">
-                    <li class="list-group-item">
-                      <h4 class='inline-header'>Album Name:</h4>
-                      <span class='album-name'>Ladyhawke</span>
-                    </li>
-
-                    <li class="list-group-item">
-                      <h4 class='inline-header'>Artist Name:</h4>
-                      <span class='artist-name'>Ladyhawke</span>
-                    </li>
-
-                    <li class="list-group-item">
-                      <h4 class='inline-header'>Released date:</h4>
-                      <span class='album-releaseDate'>2008, November 18</span>
-                    </li>
-                  </ul>
-                </div>
-
-              </div> -->
-              <!-- end of album internal row
-
-            </div>
-          </div> -->
-          <!-- end one album --> 
+        <!-- Data from ajax call -->
 
       </div>
     </section>
