@@ -46,15 +46,24 @@ $(document).ready(function() {
 //   });
 
 // get data from /api/albums, then render it using renderAlbum function
-  $.get('/api/albums', function(albums) { //SPRINT 1 STEP 1.A
-  console.log('heres my albums');
+  // $.get('/api/albums', function(albums) { //SPRINT 1 STEP 1.A
+  // console.log('heres my albums');
   
 
-  albums.forEach(function (oneAlbum) {
-    // Add a new row for each element of the response
-    renderAlbum(oneAlbum);
-  });
-  // console.log(albums);
+  // albums.forEach(function (oneAlbum) {
+  //   // Add a new row for each element of the response
+  //   renderAlbum(oneAlbum);
+  // });
+  // // console.log(albums);
+  // });
+  $.ajax ({
+    url: '/api/albums',
+    type: 'get',
+    contentType: 'application/json'
+  }).done(function(data) {
+    data.forEach(function(album) {
+      renderAlbum(album);
+    });
   });
   
 
@@ -86,7 +95,9 @@ $(this).trigger('reset');
         url: '/api/albums',
         type: 'POST',
         data: formData,
+        dataType: 'string'
       }).done(function (data) {
+        console.log('heres stuff');
         renderAlbum(data);
 
     });
@@ -122,7 +133,7 @@ function renderAlbum(album) {
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Released date:</h4>" +
   "                        <span class='album-releaseDate'>" + album.releaseDate + "</span>" + //modified the hard data with album.releaseDate SPRINT 1
-  "                      </li>" + 
+  "                      </li>" + buildSongsHtml(album.songs);
   "                    </ul>" +
   "                  </div>" +
   "                </div>" +
@@ -134,15 +145,22 @@ function renderAlbum(album) {
 
   // render to the page with jQuery
   $('#albums').append(albumHtml); //Sprint 1 to render the albums info with the .append STEP 1.B
+ }
+  function buildSongsHtml(songs) { 
+  var songText = "  – "; 
+  songs.forEach(function(song) {
+   songText = songText + "(" + song.trackNumber + ") " + song.name + " – "; });
+   var songsHtml = songText;
+   return songsHtml; 
 }
-
+// Thought Build Out for the modal!
 // function buildSongsHtml(songs) { 
 // var songHtml =
 // "  <li class='list-group-item'> " +
 // "  <h4 class='inline-header'>Songs:</h4> " +
 // "  <span>    – (1)" + songs[0].name + " – (2) " + songs[1].name + " – (3) " + songs[2].name + " – (4) " + songs[3].name + " – (5) " + songs[4].name + " – (6) " + songs[5].name + " – (7) " +  songs[6].name + " </span> " +
-// " </li> "
+// " </li> ";
 
 // return songHtml;
 
-// } buildSongsHTML(album.song);
+// } 
